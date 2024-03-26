@@ -19,11 +19,11 @@
                     <p>This is your application dashboard.</p>
                     @canany(['create-role', 'edit-role', 'delete-role'])
                         <a class="btn btn-primary" href="{{ route('roles.index') }}">
-                            <i class="bi bi-person-fill-gear"></i> Manage Roles</a>
+                            <i class="bi bi-person-fill-gear"></i> Gestionar Roles</a>
                     @endcanany
                     @canany(['create-user', 'edit-user', 'delete-user'])
                         <a class="btn btn-success" href="{{ route('users.index') }}">
-                            <i class="bi bi-people"></i> Manage Users</a>
+                            <i class="bi bi-people"></i> Gestionar Usuarios</a>
                     @endcanany
                     @canany(['create-product', 'edit-product', 'delete-product'])
                         <a class="btn btn-warning" href="{{ route('products.index') }}">
@@ -31,7 +31,7 @@
                     @endcanany
                     @canany(['create-formulario', 'edit-formualario',])
                         <a class="btn btn-warning" href="{{ route('formularios.index') }}">
-                            <i class="bi bi-bag"></i>Diligenciar Formulario</a>
+                            <i class="bi bi-clipboard2"></i>Gestionar Formulario</a>
                     @endcanany
                     <p>&nbsp;</p>
                 </div>
