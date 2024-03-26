@@ -5,6 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\FormularioController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,3 +31,8 @@ Route::resources([
     'users' => UserController::class,
     'products' => ProductController::class,
 ]);
+
+Route::get('/formularios', [FormularioController::class, 'index'])->name('formularios.index');
+Route::get('/formularios/create', [FormularioController::class, 'create'])->name('formularios.create');
+Route::post('/formularios', [FormularioController::class, 'store'])->name('formularios.store');
+

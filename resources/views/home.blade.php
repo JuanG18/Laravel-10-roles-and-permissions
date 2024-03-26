@@ -29,6 +29,10 @@
                         <a class="btn btn-warning" href="{{ route('products.index') }}">
                             <i class="bi bi-bag"></i> Manage Products</a>
                     @endcanany
+                    @canany(['create-formulario', 'edit-formualario',])
+                        <a class="btn btn-warning" href="{{ route('formularios.index') }}">
+                            <i class="bi bi-bag"></i>Diligenciar Formulario</a>
+                    @endcanany
                     <p>&nbsp;</p>
                 </div>
             </div>
