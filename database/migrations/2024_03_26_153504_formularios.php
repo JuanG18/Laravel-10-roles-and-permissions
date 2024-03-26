@@ -25,12 +25,10 @@ return new class extends Migration
             $table->float('peso_legal');
             $table->float('valor_inherente');
             $table->string('escala');
-            $table->integer('rto_dias');
-            $table->integer('rto_horas');
-            $table->integer('rto_minutos');
-            $table->integer('rpo_dias');
-            $table->integer('rpo_horas');
-            $table->integer('rpo_minutos');
+            $table->integer('rto_days')->default(0); // Días de tiempo de recuperación objetivo
+            $table->time('rto_time')->default('00:00:00'); // Horas y minutos de tiempo de recuperación objetivo
+            $table->integer('rpo_days')->default(0); // Días de tiempo de recuperación real
+            $table->time('rpo_time')->default('00:00:00'); // Horas y minutos de tiempo de recuperación real
             $table->timestamps();
         });
     }

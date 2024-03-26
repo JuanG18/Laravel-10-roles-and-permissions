@@ -37,5 +37,8 @@ class SuperAdminSeeder extends Seeder
             'password' => Hash::make('muqeet1234')
         ]);
         $productManager->assignRole('Product Manager');
+
+
+
     }
 }
