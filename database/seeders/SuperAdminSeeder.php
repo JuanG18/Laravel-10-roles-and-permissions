@@ -16,7 +16,7 @@ class SuperAdminSeeder extends Seeder
     {
         // Creating Super Admin User
         $superAdmin = User::create([
-            'name' => 'Javed Ur Rehman', 
+            'name' => 'Javed Ur Rehman',
             'email' => 'javed@allphptricks.com',
             'password' => Hash::make('javed1234')
         ]);
@@ -24,7 +24,7 @@ class SuperAdminSeeder extends Seeder
 
         // Creating Admin User
         $admin = User::create([
-            'name' => 'Syed Ahsan Kamal', 
+            'name' => 'Syed Ahsan Kamal',
             'email' => 'ahsan@allphptricks.com',
             'password' => Hash::make('ahsan1234')
         ]);
@@ -32,7 +32,7 @@ class SuperAdminSeeder extends Seeder
 
         // Creating Product Manager User
         $productManager = User::create([
-            'name' => 'Abdul Muqeet', 
+            'name' => 'Abdul Muqeet',
             'email' => 'muqeet@allphptricks.com',
             'password' => Hash::make('muqeet1234')
         ]);

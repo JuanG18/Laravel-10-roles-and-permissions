@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>Simple Laravel 10 User Roles and Permissions - AllPHPTricks.com</title>
+    <title>Gestion</title>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.bunny.net">
@@ -21,7 +21,7 @@
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    AllPHPTricks.com
+                    SuperGiros.com
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -50,13 +50,13 @@
                             @endif
                         @else
                             @canany(['create-role', 'edit-role', 'delete-role'])
-                                <li><a class="nav-link" href="{{ route('roles.index') }}">Manage Roles</a></li>
+                                <li><a class="nav-link" href="{{ route('roles.index') }}">Roles</a></li>
                             @endcanany
                             @canany(['create-user', 'edit-user', 'delete-user'])
-                                <li><a class="nav-link" href="{{ route('users.index') }}">Manage Users</a></li>
+                                <li><a class="nav-link" href="{{ route('users.index') }}">Usuarios</a></li>
                             @endcanany
                             @canany(['create-product', 'edit-product', 'delete-product'])
-                                <li><a class="nav-link" href="{{ route('products.index') }}">Manage Products</a></li>
+                                <li><a class="nav-link" href="{{ route('products.index') }}">Productos</a></li>
                             @endcanany
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -85,26 +85,15 @@
             <div class="container">
                 <div class="row justify-content-center mt-3">
                     <div class="col-md-12">
-                        
+
                         @if ($message = Session::get('success'))
                             <div class="alert alert-success text-center" role="alert">
                                 {{ $message }}
                             </div>
                         @endif
 
-                        <h3 class="text-center mt-3 mb-3">Simple Laravel 10 User Roles and Permissions - <a href="https://www.allphptricks.com/">AllPHPTricks.com</a></h3>
+                        <h3 class="text-center mt-3 mb-3">Gestion de Formulario</h3>
                         @yield('content')
-                        
-                        <div class="row justify-content-center text-center mt-3">
-                            <div class="col-md-12">
-                                <p>Back to Tutorial: 
-                                    <a href="https://www.allphptricks.com/simple-laravel-10-user-roles-and-permissions/"><strong>Tutorial Link</strong></a>
-                                </p>
-                                <p>
-                                    For More Web Development Tutorials Visit: <a href="https://www.allphptricks.com/"><strong>AllPHPTricks.com</strong></a>
-                                </p>
-                            </div>
-                        </div>
 
                     </div>
                 </div>

@@ -2,18 +2,18 @@
 
 @section('content')
 <div class="card">
-    <div class="card-header">Product List</div>
+    <div class="card-header">Lista de Productos</div>
     <div class="card-body">
         @can('create-product')
-            <a href="{{ route('products.create') }}" class="btn btn-success btn-sm my-2"><i class="bi bi-plus-circle"></i> Add New Product</a>
+            <a href="{{ route('products.create') }}" class="btn btn-success btn-sm my-2"><i class="bi bi-plus-circle"></i> Agregar Nuevo Producto</a>
         @endcan
         <table class="table table-striped table-bordered">
             <thead>
                 <tr>
-                <th scope="col">S#</th>
-                <th scope="col">Name</th>
-                <th scope="col">Description</th>
-                <th scope="col">Action</th>
+                <th scope="col">N°</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Descripción</th>
+                <th scope="col">Acción</th>
                 </tr>
             </thead>
             <tbody>
@@ -27,14 +27,14 @@
                             @csrf
                             @method('DELETE')
 
-                            <a href="{{ route('products.show', $product->id) }}" class="btn btn-warning btn-sm"><i class="bi bi-eye"></i> Show</a>
+                            <a href="{{ route('products.show', $product->id) }}" class="btn btn-warning btn-sm"><i class="bi bi-eye"></i> Ver</a>
 
                             @can('edit-product')
-                                <a href="{{ route('products.edit', $product->id) }}" class="btn btn-primary btn-sm"><i class="bi bi-pencil-square"></i> Edit</a>
+                                <a href="{{ route('products.edit', $product->id) }}" class="btn btn-primary btn-sm"><i class="bi bi-pencil-square"></i> Editar</a>
                             @endcan
 
                             @can('delete-product')
-                                <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Do you want to delete this product?');"><i class="bi bi-trash"></i> Delete</button>
+                                <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('¿Deseas eliminar este producto?');"><i class="bi bi-trash"></i> Eliminar</button>
                             @endcan
                         </form>
                     </td>
@@ -42,7 +42,7 @@
                 @empty
                     <td colspan="4">
                         <span class="text-danger">
-                            <strong>No Product Found!</strong>
+                            <strong>¡No se encontraron productos!</strong>
                         </span>
                     </td>
                 @endforelse
