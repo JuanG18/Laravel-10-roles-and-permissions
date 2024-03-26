@@ -21,6 +21,7 @@ class RoleSeeder extends Seeder
         // Crear los otros roles
         $admin = Role::firstOrCreate(['name' => 'Admin']);
         $productManager = Role::firstOrCreate(['name' => 'Product Manager']);
+        $formulario = Role::firstOrcreate(['name' => 'formulario']);
 
         // Asignar permisos a los roles
         $admin->givePermissionTo([
@@ -39,6 +40,13 @@ class RoleSeeder extends Seeder
             'delete-product',
 
         ]);
-        
+
+        $formulario->givePermissionTo([
+            'create-formulario',
+            'edit-formulario',
+            'delete-formlario',
+
+        ]);
+
     }
 }

@@ -96,7 +96,7 @@
                             </div>
                         @endif
 
-                        <h3 class="text-center mt-3 mb-3">Gestion de Administradora</h3>
+                        <h3 class="text-center mt-3 mb-3">Gestion de Administrador</h3>
                         @yield('content')
 
                     </div>
