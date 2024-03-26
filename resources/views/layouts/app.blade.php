@@ -16,10 +16,10 @@
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
-<body>
+<body style="background-image: url('/img/prueba.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
+        <nav class="navbar navbar-expand-md navbar-light bg-transparent shadow-sm custom-navbar">
+            <div class="container justify-content-between align-items-center">
                 <a class="navbar-brand" href="{{ url('/home') }}">
                     SuperGiros.com
                 </a>
@@ -27,7 +27,7 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <div class="collapse navbar-collapse" id="navbarSupportedContent" >
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
 
@@ -49,18 +49,30 @@
                                 </li>
                             @endif
                         @else
-                            @canany(['create-role', 'edit-role', 'delete-role'])
-                                <li><a class="nav-link" href="{{ route('roles.index') }}">Roles</a></li>
-                            @endcanany
-                            @canany(['create-user', 'edit-user', 'delete-user'])
-                                <li><a class="nav-link" href="{{ route('users.index') }}">Usuarios</a></li>
-                            @endcanany
-                            @canany(['create-product', 'edit-product', 'delete-product'])
-                                <li><a class="nav-link" href="{{ route('products.index') }}">Productos</a></li>
-                            @endcanany
-                            @canany(['create-formulario', 'edit-formulario'])
-                                <li><a class="nav-link" href="{{ route('formularios.create') }}">Llenar Formulario</a></li>
-                            @endcanany
+                        <style>
+
+                .nav-link {
+                   transition: color 0.4s ease, background-color 0.4s ease;
+                    }
+
+                .nav-link:hover {
+                color: #fff; /* Color del texto al pasar el cursor */
+                background-color: #3B6DA3; /* Color de fondo al pasar el cursor */
+                text-decoration: none; /* Quita la subrayado del texto */
+                             }
+                        </style>
+                        @canany(['create-role', 'edit-role', 'delete-role'])
+                        <li><a class="nav-link font-weight-bold;" href="{{ route('roles.index') }}">Roles</a></li>
+                        @endcanany
+                        @canany(['create-user', 'edit-user', 'delete-user'])
+                        <li><a class="nav-link font-weight-bold" href="{{ route('users.index') }}">Usuarios</a></li>
+                        @endcanany
+                        @canany(['create-product', 'edit-product', 'delete-product'])
+                        <li><a class="nav-link font-weight-bold" href="{{ route('products.index') }}">Productos</a></li>
+                        @endcanany
+                        @canany(['create-formulario', 'edit-formulario'])
+                        <li><a class="nav-link font-weight-bold" href="{{ route('formularios.create') }}">Llenar Formulario</a></li>
+                        @endcanany
 
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -96,7 +108,7 @@
                             </div>
                         @endif
 
-                        <h3 class="text-center mt-3 mb-3">Gestion de Administrador</h3>
+                        <h3 class="text-center mt-4 mb-4" style="color: white; font-weight: bold; font-size: 35px;">Gestion de Administrador</h3>
                         @yield('content')
 
                     </div>

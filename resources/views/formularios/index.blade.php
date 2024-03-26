@@ -7,7 +7,7 @@
         <div class="col-md-10">
             <div class="card">
                 <div class="card-header">Listado de Formularios</div>
-                <div class="card-body">
+                <div class="card-header">
                 @can('create-product')
                   <a href="{{ route('formularios.create') }}" class="btn btn-success btn-sm my-2"><i class="bi bi-plus-circle"></i> Llenar formulario</a>
                     @endcan
