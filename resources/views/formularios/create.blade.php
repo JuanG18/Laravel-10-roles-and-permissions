@@ -2,10 +2,18 @@
 
 @section('content')
 
+<style>
+    .transparent-card {
+    background-color: rgba(255, 255, 255, 0.7);
+    border: none;
+    border-radius: 10px;
+    }
+</style>
+
 <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
+    <div class="row justify-content-center ">
+        <div class="col-md-8 ">
+            <div class="card transparent-card">
                 <div class="card-header">Crear Nuevo Formulario</div>
 
                 <div class="card-body">
@@ -45,10 +53,10 @@
                         </div>
 
                         <!-- Agrega aquí los campos restantes según tu estructura de formulario -->
-
+                        <br>
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn-outline-success">
                                     Guardar Formulario
                                 </button>
                             </div>

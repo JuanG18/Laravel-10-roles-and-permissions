@@ -4,7 +4,7 @@
 <style>
 
     .dashboard-background {
-        background-color: rgba(255, 255, 255, 0.8);
+        background-color: rgba(255, 255, 255, 0.7);
         border: none;
         box-shadow: none;
     }

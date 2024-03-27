@@ -1,14 +1,28 @@
 @extends('layouts.app')
 
 @section('content')
+<style>
+    .transparent-card {
+    background-color: rgba(255, 255, 255, 0.7);
+    border: none;
+    border-radius: 10px;
+}
+    .table-transparent {
+        background-color: rgba(255, 255, 255, 0.5);
+        border-radius: 10px;
+    }
+</style>
 
-<div class="card">
+
+
+
+<div class="card transparent-card">
     <div class="card-header">Administrar Usuarios</div>
-    <div class="card-body">
+    <div class="card-body ">
         @can('create-user')
             <a href="{{ route('users.create') }}" class="btn btn-outline-success btn-sm my-2"><i class="bi bi-plus-circle"></i> Agregar Nuevo Usuario</a>
         @endcan
-        <table class="table table-striped table-bordered">
+        <table class="table table-striped table-bordered table-transparent">
             <thead>
                 <tr>
                 <th scope="col">N°</th>

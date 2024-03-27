@@ -2,14 +2,22 @@
 
 @section('content')
 
+<style>
+    .transparent-card {
+    background-color: rgba(255, 255, 255, 0.7);
+    border: none;
+    border-radius: 10px;
+    }
+</style>
+
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-10">
-            <div class="card">
+            <div class="card transparent-card">
                 <div class="card-header">Listado de Formularios</div>
-                <div class="card-header">
+                <div class="card-header ">
                 @can('create-product')
-                  <a href="{{ route('formularios.create') }}" class="btn btn-success btn-sm my-2"><i class="bi bi-plus-circle"></i> Llenar formulario</a>
+                  <a href="{{ route('formularios.create') }}" class="btn btn-outline-success btn-sm my-2"><i class="bi bi-plus-circle"></i> Llenar formulario</a>
                     @endcan
                     <div class="table-responsive">
                         <table class="table table-striped">
