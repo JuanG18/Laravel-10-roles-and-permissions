@@ -7,7 +7,7 @@
     </div>
     <div class="card-body">
         @can('create-role')
-            <a href="{{ route('roles.create') }}" class="btn btn-success btn-sm mb-3"><i class="bi bi-plus-circle"></i> Agregar Nuevo Rol</a>
+            <a href="{{ route('roles.create') }}" class="btn btn-outline-success btn-sm mb-3"><i class="bi bi-plus-circle"></i> Agregar Nuevo Rol</a>
         @endcan
         <div class="table-responsive">
             <table class="table table-striped table-bordered">
@@ -25,16 +25,16 @@
                         <td>{{ $role->name }}</td>
                         <td>
                             <div class="btn-group" role="group">
-                                <a href="{{ route('roles.show', $role->id) }}" class="btn btn-warning btn-sm"><i class="bi bi-eye"></i> Ver</a>
+                                <a href="{{ route('roles.show', $role->id) }}" class="btn btn-outline-info btn-sm"><i class="bi bi-eye"></i> Ver</a>
                                 @if ($role->name!='Super Admin')
                                     @can('edit-role')
-                                        <a href="{{ route('roles.edit', $role->id) }}" class="btn btn-primary btn-sm ms-1"><i class="bi bi-pencil-square"></i> Editar</a>
+                                        <a href="{{ route('roles.edit', $role->id) }}" class="btn btn-outline-primary btn-sm ms-1"><i class="bi bi-pencil-square"></i> Editar</a>
                                     @endcan
                                     @can('delete-role')
                                         <form action="{{ route('roles.destroy', $role->id) }}" method="post" class="ms-1">
                                             @csrf
                                             @method('DELETE')
-                                            <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('¿Deseas eliminar este rol?');"><i class="bi bi-trash"></i> Eliminar</button>
+                                            <button type="submit" class="btn btn-outline-danger  btn-sm" onclick="return confirm('¿Deseas eliminar este rol?');"><i class="bi bi-trash"></i> Eliminar</button>
                                         </form>
                                     @endcan
                                 @endif

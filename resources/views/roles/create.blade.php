@@ -11,7 +11,7 @@
                     Agregar Nuevo Rol
                 </div>
                 <div class="float-end">
-                    <a href="{{ route('roles.index') }}" class="btn btn-light btn-sm">&larr; Volver</a>
+                    <a href="{{ route('roles.index') }}" class="btn btn-outline-light btn-sm">&larr; Volver</a>
                 </div>
             </div>
             <div class="card-body">
@@ -48,7 +48,7 @@
                     </div>
 
                     <div class="mb-3 row">
-                        <button type="submit" class="col-md-3 offset-md-5 btn btn-primary">Agregar Rol</button>
+                        <button type="submit" class="col-md-3 offset-md-5 btn btn-outline-success">Agregar Rol</button>
                     </div>
 
                 </form>

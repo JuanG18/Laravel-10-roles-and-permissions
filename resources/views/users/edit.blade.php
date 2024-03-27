@@ -9,7 +9,7 @@
                     Editar Usuario
                 </div>
                 <div class="float-end">
-                    <a href="{{ route('users.index') }}" class="btn btn-primary btn-sm">&larr; Volver</a>
+                    <a href="{{ route('users.index') }}" class="btn btn-outline-secondary btn-sm">&larr; Volver</a>
                 </div>
             </div>
             <div class="card-body">
@@ -83,7 +83,7 @@
                     </div>
 
                     <div class="mb-3 row">
-                        <input type="submit" class="col-md-3 offset-md-5 btn btn-primary" value="Actualizar Usuario">
+                        <input type="submit" class="col-md-3 offset-md-5 btn btn-outline-success" value="Actualizar Usuario">
                     </div>
 
                 </form>

@@ -2,7 +2,7 @@
 
 @section('content')
 <style>
-    
+
     .dashboard-background {
         background-color: rgba(255, 255, 255, 0.8);
         border: none;
@@ -15,13 +15,37 @@
         background-color: #6c757d;
         border-color: #6c757d;
     }
+
+    .dashboard-card {
+    margin-bottom: 20px;
+    border: none;
+    box-shadow: none;
+    background-color: rgba(0, 0, 255, 0.1);
+    transition: background-color 0.3s ease;
+    }
+
+    .dashboard-card:hover {
+    background-color: aquamarine; /* Cambia el color al pasar el cursor */
+    }
+
+    .card-title {
+        font-size: 20px;
+        font-weight: bold;
+        text-align:center;
+    }
+
+    .card-text {
+        font-size: 18px;
+        text-align:center;
+    }
+
 </style>
 
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-10">
             <div class="card dashboard-background">
-                <div class="card-header">{{ __('Dashboard') }}</div>
+                <div class="card-header">{{ __('Menu') }}</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -30,14 +54,39 @@
                         </div>
                     @endif
 
-                    {{ __('You are logged in!') }}
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="card dashboard-card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Usuarios</h5>
+                                    <p class="card-text">Cantidad: {{ $usuarios }}</p>
+                                </div>
+                            </div>
+                        </div>
 
-                    <p>This is your application dashboard.</p>
+                        <div class="col-md-4">
+                            <div class="card dashboard-card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Formularios</h5>
+                                    <p class="card-text">Cantidad: {{ $formularios }}</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="card dashboard-card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Roles</h5>
+                                    <p class="card-text">Cantidad: {{ $roles }}</p>
+                                </div>
+                            </div>
+                        </div>
+
 
                     <div class="row">
                         @canany(['create-role', 'edit-role', 'delete-role'])
                             <div class="col-md-6 mb-3">
-                                <a class="btn btn-primary btn-block" href="{{ route('roles.index') }}">
+                                <a class="btn btn-outline-primary" href="{{ route('roles.index') }}">
                                     <i class="bi bi-person-fill-gear"> Gestionar Roles</i>
                                 </a>
                             </div>
@@ -45,7 +94,7 @@
 
                         @canany(['create-user', 'edit-user', 'delete-user'])
                             <div class="col-md-6 mb-3">
-                                <a class="btn btn-success btn-block" href="{{ route('users.index') }}">
+                                <a class="btn btn-outline-secondary" href="{{ route('users.index') }}">
                                     <i class="bi bi-people"> Gestionar Usuarios</i>
                                 </a>
                             </div>
@@ -53,7 +102,7 @@
 
                         @canany(['create-product', 'edit-product', 'delete-product'])
                             <div class="col-md-6 mb-3">
-                                <a class="btn btn-warning btn-block" href="{{ route('products.index') }}">
+                                <a class="btn btn-outline-dark" href="{{ route('products.index') }}">
                                     <i class="bi bi-bag"> Gestionar Productos</i>
                                 </a>
                             </div>
@@ -61,7 +110,7 @@
 
                         @canany(['create-formulario', 'edit-formulario'])
                             <div class="col-md-6 mb-3">
-                                <a class="btn btn-info btn-block" href="{{ route('formularios.index') }}">
+                                <a class="btn btn-outline-info" href="{{ route('formularios.index') }}">
                                     <i class="bi bi-clipboard2"> Gestionar Formularios</i>
                                 </a>
                             </div>

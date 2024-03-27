@@ -6,7 +6,7 @@
     <div class="card-header">Administrar Usuarios</div>
     <div class="card-body">
         @can('create-user')
-            <a href="{{ route('users.create') }}" class="btn btn-success btn-sm my-2"><i class="bi bi-plus-circle"></i> Agregar Nuevo Usuario</a>
+            <a href="{{ route('users.create') }}" class="btn btn-outline-success btn-sm my-2"><i class="bi bi-plus-circle"></i> Agregar Nuevo Usuario</a>
         @endcan
         <table class="table table-striped table-bordered">
             <thead>
@@ -35,20 +35,20 @@
                             @csrf
                             @method('DELETE')
 
-                            <a href="{{ route('users.show', $user->id) }}" class="btn btn-warning btn-sm"><i class="bi bi-eye"></i> Ver</a>
+                            <a href="{{ route('users.show', $user->id) }}" class="btn btn-outline-info"><i class="bi bi-eye"></i> Ver</a>
 
                             @if (in_array('Super Admin', $user->getRoleNames()->toArray() ?? []) )
                                 @if (Auth::user()->hasRole('Super Admin'))
-                                    <a href="{{ route('users.edit', $user->id) }}" class="btn btn-primary btn-sm"><i class="bi bi-pencil-square"></i> Editar</a>
+                                    <a href="{{ route('users.edit', $user->id) }}" class="btn btn-outline-primary"><i class="bi bi-pencil-square"></i> Editar</a>
                                 @endif
                             @else
                                 @can('edit-user')
-                                    <a href="{{ route('users.edit', $user->id) }}" class="btn btn-primary btn-sm"><i class="bi bi-pencil-square"></i> Editar</a>
+                                    <a href="{{ route('users.edit', $user->id) }}" class="btn btn-outline-primary"><i class="bi bi-pencil-square"></i> Editar</a>
                                 @endcan
 
                                 @can('delete-user')
                                     @if (Auth::user()->id!=$user->id)
-                                        <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('¿Deseas eliminar a este usuario?');"><i class="bi bi-trash"></i> Eliminar</button>
+                                        <button type="submit" class="btn btn-outline-danger" onclick="return confirm('¿Deseas eliminar a este usuario?');"><i class="bi bi-trash"></i> Eliminar</button>
                                     @endif
                                 @endcan
                             @endif
