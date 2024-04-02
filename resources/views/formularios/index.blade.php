@@ -16,7 +16,7 @@
             <div class="card transparent-card">
                 <div class="card-header">Listado de Formularios</div>
                 <div class="card-header ">
-                @can('create-product')
+                @can('create-formulario')
                   <a href="{{ route('formularios.create') }}" class="btn btn-outline-success btn-sm my-2"><i class="bi bi-plus-circle"></i> Llenar formulario</a>
                     @endcan
                     <div class="table-responsive">
@@ -24,13 +24,9 @@
                             <thead>
                                 <tr>
                                     <th>ID</th>
+                                    <th>Fecha Creacion</th>
+                                    <th>Proceso</th>
                                     <th>Actividad</th>
-                                    <th>N. Operativo</th>
-                                    <th>N. Financiero</th>
-                                    <th>N. Legal</th>
-                                    <th>P. Operativo</th>
-                                    <th>P. Financiero</th>
-                                    <th>P. Legal</th>
                                     <th>Acciones</th>
                                 </tr>
                             </thead>
@@ -39,19 +35,15 @@
                                 <tr>
                                     <td>{{ $formulario->id }}</td>
                                     <td>{{ $formulario->fecha_elaboracion }}</td>
+                                    <td></td>
                                     <td>{{ $formulario->actividad }}</td>
-                                    <td>{{ $formulario->nivel_operativo }}</td>
-                                    <td>{{ $formulario->nivel_financiero }}</td>
-                                    <td>{{ $formulario->nivel_legal }}</td>
-                                    <td>{{ $formulario->peso_operativo }}</td>
-                                    <td>{{ $formulario->peso_financiero }}</td>
-                                    <td>{{ $formulario->peso_legal }}</td>
 
+                                    @can('edit-formulario')
                                     <td>
-                                        <a href="{{ route('formularios.show', $formulario->id) }}" class="btn btn-info btn-sm">Ver</a>
-                                        <a href="{{ route('formularios.edit', $formulario->id) }}" class="btn btn-primary btn-sm">Editar</a>
-
+                                        <a href="{{ route('formularios.edit', $formulario->id) }}" class="btn btn-outline-primary btn-sm">Editar</a>
                                     </td>
+                                    @endcan
+
                                 </tr>
                                 @endforeach
                             </tbody>

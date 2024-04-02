@@ -7,28 +7,34 @@ use Illuminate\Database\Eloquent\Model;
 
 class Formulario extends Model
 {
-    use HasFactory;
-
     protected $fillable = [
-            'fecha_elaboracion',
-            'actividad',
-            'nivel_operativo',
-            'nivel_financiero',
-            'nivel_legal',
-            'peso_operativo',
-            'peso_financiero',
-            'peso_legal',
-            'valor_inherente',
-            'escala',
-            'rto_days',
-            'rto_time',
-            'rpo_days',
-            'rpo_time',
-        ];
+        'fecha_elaboracion',
+        'actividad',
+        'nivel_operativo',
+        'nivel_financiero',
+        'nivel_legal',
+        'peso_operativo',
+        'peso_financiero',
+        'peso_legal',
+        'valor_inherente',
+        'escala',
+        'rto_days',
+        'rto_hour',
+        'rto_minute',
+        'rpo_days',
+        'rpo_hour',
+        'rpo_minute',
+        'recusos_humano',
+        'herramientas',
+        'registros_vitales',
+        'recomendaciones_recuperacion',
+
+    ];
+
 
         protected $casts = [
             'fecha_elaboracion' => 'datetime',
-            'rto_time' => 'time',
-            'rpo_time' => 'time',
+
+
         ];
 }
