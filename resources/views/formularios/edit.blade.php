@@ -142,16 +142,17 @@
 
                         <br>
                         <div class="form-group row">
-                            <label for="recurso_humano" class="col-md-4 col-form-label text-md-right">Recurso Humano</label>
-                            <div class="col-md-6">
-                                <textarea id="recurso_humano" class="form-control @error('recurso_humano') is-invalid @enderror" name="recurso_humano" required>{{ $formulario->recurso_humano }}</textarea>
-                                @error('recurso_humano')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
+                        <label for="recurso_humano" class="col-md-4 col-form-label text-md-right">Recursos Humanos</label>
+                        <div class="col-md-6">
+                      <textarea id="recurso_humano" class="form-control @error('recurso_humano') is-invalid @enderror" name="recurso_humano" required>{{ $formulario->recurso_humano }}</textarea>
+        @error('recurso_humano')
+            <span class="invalid-feedback" role="alert">
+                <strong>{{ $message }}</strong>
+            </span>
+        @enderror
+    </div>
+</div>
+
                         <br>
                         <div class="form-group row">
                             <label for="herramientas" class="col-md-4 col-form-label text-md-right">Herramientas</label>
