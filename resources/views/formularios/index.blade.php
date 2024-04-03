@@ -25,7 +25,6 @@
                                 <tr>
                                     <th>ID</th>
                                     <th>Fecha Creacion</th>
-                                    <th>Proceso</th>
                                     <th>Actividad</th>
                                     <th>Escala</th>
                                     <th>Acciones</th>
@@ -36,7 +35,6 @@
                                 <tr>
                                     <td>{{ $formulario->id }}</td>
                                     <td>{{ $formulario->fecha_elaboracion }}</td>
-                                    <td></td>
                                     <td>{{ $formulario->actividad }}</td>
                                     <td>{{ $formulario->escala }}</td>
 

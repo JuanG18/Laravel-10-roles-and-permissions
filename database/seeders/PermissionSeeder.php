@@ -23,6 +23,9 @@ class PermissionSeeder extends Seeder
             'create-product',
             'edit-product',
             'delete-product',
+            'create-formulario',
+            'edit-formulario',
+            'delete-formlario',
          ];
 
           // Looping and Inserting Array's Permissions into Permission Table

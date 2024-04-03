@@ -136,7 +136,10 @@
                                 @enderror
                             </div>
                         </div>
-
+                        <br>
+                        <br>
+                        <h4>Recursos Necesarios</h4>
+                        <br>
                         <div class="form-group row">
                             <label for="recurso_humano" class="col-md-4 col-form-label text-md-right">Recursos Humanos</label>
                             <div class="col-md-6">
@@ -172,6 +175,9 @@
                                 @enderror
                             </div>
                         </div>
+                        <br>
+                        <br>
+                        <h4>Contingencia Operativa</h4>
                         <br>
                         <div class="form-group row">
                             <label for="recomendaciones_recuperacion" class="col-md-4 col-form-label text-md-right">Recomendaciones para la Recuperación</label>
