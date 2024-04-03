@@ -42,7 +42,10 @@
 
                                     @can('edit-formulario')
                                     <td>
-                                        <a href="{{ route('formularios.edit', $formulario->id) }}" class="btn btn-outline-primary btn-sm">Editar</a>
+                                        <div class="btn-group" role="group">
+                                            <a href="{{ route('formularios.edit', $formulario->id) }}" class="btn btn-outline-primary btn-sm">Editar</a>
+                                            <a href="{{ route('formularios.show', $formulario->id) }}" class="btn btn-outline-primary btn-sm">Ver</a>
+                                        </div>
                                     </td>
                                     @endcan
 

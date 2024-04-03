@@ -37,4 +37,5 @@ Route::get('/formularios/create', [FormularioController::class, 'create'])->name
 Route::post('/formularios', [FormularioController::class, 'store'])->name('formularios.store');
 Route::get('/formularios/{formulario}/edit', [FormularioController::class, 'edit'])->name('formularios.edit');
 Route::put('/formularios/{id}', [FormularioController::class, 'update'])->name('formularios.update');
+Route::get('/formularios/{formulario}',[FormularioController::class, 'show'])->name('formularios.show');
 

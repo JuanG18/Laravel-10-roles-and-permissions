@@ -27,6 +27,10 @@ class FormularioController extends Controller
     ]);
 
 }
+    public function show(Formulario $formulario)
+    {
+    return view('formularios.show', compact('formulario'));
+    }
 
 
     public function store(Request $request )
