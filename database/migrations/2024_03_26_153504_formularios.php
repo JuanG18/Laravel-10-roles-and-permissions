@@ -31,7 +31,7 @@ return new class extends Migration
             $table->integer('rpo_days')->nullable()->change();
             $table->integer('rpo_hours')->nullable()->change();
             $table->integer('rpo_minutes')->nullable()->change();
-            $table->text('recursos_humanos')->nullable();
+            $table->text('recurso_humano')->nullable();
             $table->text('herramientas')->nullable();
             $table->text('registros_vitales')->nullable();
             $table->text('recomendaciones_recuperacion')->nullable();

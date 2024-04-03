@@ -25,7 +25,7 @@ class FormularioController extends Controller
     $formulario = Formulario::findOrFail($id);
 
     // Retorna la vista de edición con el formulario encontrado
-    return view('formularios.index', compact('formulario'));
+    return view('formularios.edit', compact('formulario'));
 }
 
     public function store(Request $request)
@@ -35,13 +35,15 @@ class FormularioController extends Controller
             'nivel_operativo' => 'required|in:Alta,Medio,Bajo',
             'nivel_financiero' => 'required|in:Alta,Medio,Bajo',
             'nivel_legal' => 'required|in:Alta,Medio,Bajo',
-            'rto_dias' => 'required|integer',
-            'rto_horas' => 'required|integer',
-            'rto_minutos' => 'required|integer',
-            'rpo_dias' => 'required|integer',
-            'rpo_horas' => 'required|integer',
-            'rpo_minutos' => 'required|integer',
+            'rto_days' => 'required|integer',
+            'rto_hours' => 'required|integer',
+            'rto_minutes' => 'required|integer',
+            'rpo_days' => 'required|integer',
+            'rpo_hours' => 'required|integer',
+            'rpo_minutes' => 'required|integer',
+
         ]);
+       
 
         // Calcula los pesos
         $peso_operativo = $request->nivel_operativo === 'Alta' ? 5 : ($request->nivel_operativo === 'Medio' ? 3 : 1);
@@ -74,12 +76,18 @@ class FormularioController extends Controller
             'peso_legal' => $peso_legal,
             'valor_inherente' => $valor_inherente,
             'escala' => $escala,
-            'rto_dias' => $request->rto_dias,
-            'rto_horas' => $request->rto_horas,
-            'rto_minutos' => $request->rto_minutos,
-            'rpo_dias' => $request->rpo_dias,
-            'rpo_horas' => $request->rpo_horas,
-            'rpo_minutos' => $request->rpo_minutos,
+            'rto_days' => $request->rto_days,
+            'rto_hours' => $request->rto_hours,
+            'rto_minutes' => $request->rto_minutes,
+            'rpo_days' => $request->rpo_days,
+            'rpo_hours' => $request->rpo_hours,
+            'rpo_minutes' => $request->rpo_minutes,
+            'recurso_humano' => $request->recurso_humano,
+            'herramientas' => $request->herramientas,
+            'registros_vitales' => $request->registros_vitales,
+            'recomendaciones_recuperacion' => $request->recomendaciones_recuperacion,
+
+
         ]);
 
         return redirect()->back()->with('success', 'Formulario guardado exitosamente.');
@@ -92,12 +100,13 @@ class FormularioController extends Controller
         'nivel_operativo' => 'required|in:Alta,Medio,Bajo',
         'nivel_financiero' => 'required|in:Alta,Medio,Bajo',
         'nivel_legal' => 'required|in:Alta,Medio,Bajo',
-        'rto_dias' => 'required|integer',
-        'rto_horas' => 'required|integer',
-        'rto_minutos' => 'required|integer',
-        'rpo_dias' => 'required|integer',
-        'rpo_horas' => 'required|integer',
-        'rpo_minutos' => 'required|integer',
+        'rto_days' => 'required|integer',
+        'rto_hours' => 'required|integer',
+        'rto_minutes' => 'required|integer',
+        'rpo_days' => 'required|integer',
+        'rpo_hours' => 'required|integer',
+        'rpo_minutes' => 'required|integer',
+
     ]);
 
     // Calcula los pesos
@@ -130,16 +139,20 @@ class FormularioController extends Controller
         'peso_legal' => $peso_legal,
         'valor_inherente' => $valor_inherente,
         'escala' => $escala,
-        'rto_dias' => $request->rto_dias,
-        'rto_horas' => $request->rto_horas,
-        'rto_minutos' => $request->rto_minutos,
-        'rpo_dias' => $request->rpo_dias,
-        'rpo_horas' => $request->rpo_horas,
-        'rpo_minutos' => $request->rpo_minutos,
+        'rto_days' => $request->rto_days,
+        'rto_hours' => $request->rto_hours,
+        'rto_minutes' => $request->rto_minutes,
+        'rpo_days' => $request->rpo_days,
+        'rpo_hours' => $request->rpo_hours,
+        'rpo_minutes' => $request->rpo_minutes,
+        'recurso_humano' => $request->recurso_humano,
+        'herramientas' => $request->herramientas,
+        'registros_vitales' => $request->registros_vitales,
+        'recomendaciones_recuperacion' => $request->recomendaciones_recuperacion,
     ]);
 
     // Redirigir a alguna vista o ruta después de la actualización exitosa
-    return redirect()->route('formularios.index', compact('formularios'))
+    return redirect()->route('formularios.index', compact('formulario'))
                      ->with('success', 'Formulario actualizado exitosamente.');
 }
 

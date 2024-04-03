@@ -27,6 +27,7 @@
                                     <th>Fecha Creacion</th>
                                     <th>Proceso</th>
                                     <th>Actividad</th>
+                                    <th>Escala</th>
                                     <th>Acciones</th>
                                 </tr>
                             </thead>
@@ -37,6 +38,7 @@
                                     <td>{{ $formulario->fecha_elaboracion }}</td>
                                     <td></td>
                                     <td>{{ $formulario->actividad }}</td>
+                                    <td>{{ $formulario->escala }}</td>
 
                                     @can('edit-formulario')
                                     <td>
