@@ -15,6 +15,20 @@
         <div class="col-md-10">
             <div class="card transparent-card">
                 <div class="card-header">Listado de Formularios</div>
+
+                <div class="card-header d-flex justify-content-end">
+    <form action="{{ route('formularios.index') }}" method="GET" class="form-inline">
+        <div class="input-group">
+            <input type="text" class="form-control form-control-sm" id="creador" name="creador" placeholder="Buscar por Creador">
+            <div class="input-group-append">
+                <button type="submit" class="btn btn-primary btn-sm">Buscar</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+
+
                 <div class="card-header ">
                 @can('create-formulario')
                   <a href="{{ route('formularios.create') }}" class="btn btn-outline-success btn-sm my-2"><i class="bi bi-plus-circle"></i> Llenar formulario</a>

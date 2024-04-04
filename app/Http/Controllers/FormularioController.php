@@ -7,9 +7,21 @@ use App\Models\Formulario;
 
 class FormularioController extends Controller
 {
-    public function index()
+    public function index(Request $request)
 {
+
     $formularios = Formulario::with('user')->get();
+
+    $query = Formulario::query();
+
+    if ($request->has('creador')) {
+        $query->whereHas('user', function($query) use ($request) {
+            $query->where('name', 'like', '%' . $request->creador . '%');
+        });
+    }
+
+    $formularios = $query->get();
+
     return view('formularios.index', compact('formularios'));
 }
 
@@ -101,7 +113,7 @@ class FormularioController extends Controller
 
         return redirect()->back()->with('success', 'Formulario guardado exitosamente.');
     }
-    
+
 
     public function update(Request $request, Formulario $id)
 {
