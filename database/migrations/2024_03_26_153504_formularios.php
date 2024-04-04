@@ -35,6 +35,7 @@ return new class extends Migration
             $table->text('herramientas')->nullable();
             $table->text('registros_vitales')->nullable();
             $table->text('recomendaciones_recuperacion')->nullable();
+            $table->unsignedBigInteger('user_id');
             $table->timestamps();
         });
     }

@@ -24,6 +24,7 @@
                             <thead>
                                 <tr>
                                     <th>ID</th>
+                                    <th>Creador</th>
                                     <th>Fecha Creacion</th>
                                     <th>Actividad</th>
                                     <th>Escala</th>
@@ -34,9 +35,11 @@
                                 @foreach ($formularios as $formulario)
                                 <tr>
                                     <td>{{ $formulario->id }}</td>
+                                    <td>{{ $formulario->user->name }}</td>
                                     <td>{{ $formulario->fecha_elaboracion }}</td>
                                     <td>{{ $formulario->actividad }}</td>
                                     <td>{{ $formulario->escala }}</td>
+
 
                                     @can('edit-formulario')
                                     <td>

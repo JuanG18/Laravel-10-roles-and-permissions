@@ -28,6 +28,7 @@ class Formulario extends Model
         'herramientas',
         'registros_vitales',
         'recomendaciones_recuperacion',
+        'user_id',
 
     ];
 
@@ -37,4 +38,9 @@ class Formulario extends Model
 
 
         ];
+
+        public function user()
+        {
+            return $this->belongsTo(User::class);
+        }
 }

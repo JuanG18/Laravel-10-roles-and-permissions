@@ -1,17 +1,17 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\Formulario;
 
 class FormularioController extends Controller
 {
     public function index()
-    {
-        $formularios = Formulario::all();
-        return view('formularios.index', compact('formularios'));
-    }
+{
+    $formularios = Formulario::with('user')->get();
+    return view('formularios.index', compact('formularios'));
+}
 
 
     public function create()
@@ -33,7 +33,7 @@ class FormularioController extends Controller
     }
 
 
-    public function store(Request $request )
+    public function store(Request $request)
     {
         // Validar los datos del formulario
         $request->validate([
@@ -50,9 +50,7 @@ class FormularioController extends Controller
             'herramientas' => 'required',
             'registros_vitales' => 'required',
             'recomendaciones_recuperacion' => 'required',
-
         ]);
-
 
         // Calcula los pesos
         $peso_operativo = $request->nivel_operativo === 'Alta' ? 5 : ($request->nivel_operativo === 'Medio' ? 3 : 1);
@@ -73,8 +71,11 @@ class FormularioController extends Controller
             $escala = "Bajo";
         }
 
+        // Obtener el usuario autenticado
+        $user = Auth::user();
+
         // Guarda los datos del formulario
-        Formulario::create([
+        $formulario = Formulario::create([
             'fecha_elaboracion' => now(),
             'actividad' => $request->actividad,
             'nivel_operativo' => $request->nivel_operativo,
@@ -95,12 +96,12 @@ class FormularioController extends Controller
             'herramientas' => $request->herramientas,
             'registros_vitales' => $request->registros_vitales,
             'recomendaciones_recuperacion' => $request->recomendaciones_recuperacion,
-
-
+            'user_id' => $user->id, // Asigna el user_id del usuario autenticado
         ]);
 
         return redirect()->back()->with('success', 'Formulario guardado exitosamente.');
     }
+    
 
     public function update(Request $request, Formulario $id)
 {
