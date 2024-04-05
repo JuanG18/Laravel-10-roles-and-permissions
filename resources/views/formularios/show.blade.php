@@ -112,6 +112,9 @@
                     </table>
                 </div>
             </div>
+            <div class="container mt-4">
+            <a href="{{ route('formulario.generateWord', ['id' => $formulario->id]) }}" class="btn btn-primary">Descargar Formulario en Word</a>
+    </div>
         </div>
     </div>
 </div>

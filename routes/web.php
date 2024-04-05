@@ -6,6 +6,9 @@ use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\FormularioController;
+use App\Http\Controllers\WordController;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -38,4 +41,4 @@ Route::post('/formularios', [FormularioController::class, 'store'])->name('formu
 Route::get('/formularios/{formulario}/edit', [FormularioController::class, 'edit'])->name('formularios.edit');
 Route::put('/formularios/{id}', [FormularioController::class, 'update'])->name('formularios.update');
 Route::get('/formularios/{formulario}',[FormularioController::class, 'show'])->name('formularios.show');
-
+Route::get('/formulario/{id}/generate-word', [WordController::class, 'generateWord'])->name('formulario.generateWord');
