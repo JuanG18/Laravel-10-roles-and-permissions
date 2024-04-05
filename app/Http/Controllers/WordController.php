@@ -12,6 +12,9 @@ class WordController extends Controller
     {
         // Obtener el formulario con el ID proporcionado
         $formulario = Formulario::findOrFail($id);
+        $nombreUsuario = $formulario->user->name;
+        $fechaCreacion = $formulario->fecha_elaboracion->format('d/m/Y');
+
 
         $templatePath = public_path('documents\bia.docx');
 
@@ -25,6 +28,8 @@ class WordController extends Controller
         $templateProcessor->setValue('escala', $formulario->escala);
         $templateProcessor->setValue('valor_inherente',$formulario->valor_inherente);
         $templateProcessor->setValue('rto_days',$formulario->rto_days);
+        $templateProcessor->setValue('nombre_usuario', $nombreUsuario);
+        $templateProcessor->setValue('fecha_creacion', $fechaCreacion);
 
 
         // Guardar el documento llenado en una nueva ruta
