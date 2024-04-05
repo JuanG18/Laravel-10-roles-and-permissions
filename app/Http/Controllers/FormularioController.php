@@ -20,7 +20,7 @@ class FormularioController extends Controller
         });
     }
 
-    $formularios = $query->get();
+    $formularios = $query->paginate(6);
 
     return view('formularios.index', compact('formularios'));
 }

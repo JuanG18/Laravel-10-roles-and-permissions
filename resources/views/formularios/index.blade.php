@@ -17,15 +17,15 @@
                 <div class="card-header">Listado de Formularios</div>
 
                 <div class="card-header d-flex justify-content-end">
-    <form action="{{ route('formularios.index') }}" method="GET" class="form-inline">
-        <div class="input-group">
-            <input type="text" class="form-control form-control-sm" id="creador" name="creador" placeholder="Buscar por Creador">
-            <div class="input-group-append">
-                <button type="submit" class="btn btn-primary btn-sm">Buscar</button>
-            </div>
-        </div>
-    </form>
-</div>
+                        <form action="{{ route('formularios.index') }}" method="GET" class="form-inline">
+                        <div class="input-group">
+                            <input type="text" class="form-control form-control-sm" id="creador" name="creador" placeholder="Buscar por Creador">
+                            <div class="input-group-append">
+                                <button type="submit" class="btn btn-primary btn-sm">Buscar</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
 
 
 
@@ -68,10 +68,13 @@
                                 @endforeach
                             </tbody>
                         </table>
+                        <div class="d-flex justify-content-center mt-3">
+                            {{ $formularios->links() }}
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </div>  
     </div>
 </div>
 
