@@ -42,3 +42,5 @@ Route::get('/formularios/{formulario}/edit', [FormularioController::class, 'edit
 Route::put('/formularios/{id}', [FormularioController::class, 'update'])->name('formularios.update');
 Route::get('/formularios/{formulario}',[FormularioController::class, 'show'])->name('formularios.show');
 Route::get('/formulario/{id}/generate-word', [WordController::class, 'generateWord'])->name('formulario.generateWord');
+Route::get('/usuarios/{id}/formularios', [UserController::class, 'formularios'])->name('usuarios.formularios');
+Route::get('/usuarios/{id}/formularios/detalle', [UserController::class, 'detalleFormularios'])->name('usuarios.formularios.detalle');

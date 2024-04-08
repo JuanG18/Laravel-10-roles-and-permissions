@@ -5,35 +5,43 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use PhpOffice\PhpWord\TemplateProcessor;
 use App\Models\Formulario;
+use Illuminate\Support\Facades\Auth;
 
 class WordController extends Controller
 {
-    public function generateWord($id )
+    public function generateWord()
     {
-        // Obtener el formulario con el ID proporcionado
-        $formulario = Formulario::findOrFail($id);
-        $nombreUsuario = $formulario->user->name;
-        $fechaCreacion = $formulario->fecha_elaboracion->format('d/m/Y');
+        // Obtener el usuario autenticado
+        $user = Auth::user();
 
+        // Obtener los formularios asociados al usuario autenticado
+        $formularios = $user->formularios;
 
-        $templatePath = public_path('documents\bia.docx');
+        // Ruta de la plantilla
+        $templatePath = public_path('documents/bia.docx');
 
         // Crear un nuevo objeto TemplateProcessor
         $templateProcessor = new TemplateProcessor($templatePath);
 
-        // Llenar la plantilla con los datos del formulario
-        $templateProcessor->setValue('actividad', $formulario->actividad);
-        $templateProcessor->setValue('nivel_operativo', $formulario->nivel_operativo);
-        $templateProcessor->setValue('nivel_financiero', $formulario->nivel_financiero);
-        $templateProcessor->setValue('escala', $formulario->escala);
-        $templateProcessor->setValue('valor_inherente',$formulario->valor_inherente);
-        $templateProcessor->setValue('rto_days',$formulario->rto_days);
-        $templateProcessor->setValue('nombre_usuario', $nombreUsuario);
-        $templateProcessor->setValue('fecha_creacion', $fechaCreacion);
+        // Iterar sobre los formularios del usuario
+        foreach ($formularios as $index => $formulario) {
+            // Obtener los datos del formulario
+            $nombreUsuario = $formulario->user->name;
+            $fechaCreacion = $formulario->fecha_elaboracion->format('d/m/Y');
 
+            // Llenar la plantilla con los datos del formulario
+            $templateProcessor->setValue("actividad#$index", $formulario->actividad);
+            $templateProcessor->setValue("nivel_operativo#$index", $formulario->nivel_operativo);
+            $templateProcessor->setValue("nivel_financiero#$index", $formulario->nivel_financiero);
+            $templateProcessor->setValue("escala#$index", $formulario->escala);
+            $templateProcessor->setValue("valor_inherente#$index", $formulario->valor_inherente);
+            $templateProcessor->setValue("rto_days#$index", $formulario->rto_days);
+            $templateProcessor->setValue("nombre_usuario#$index", $nombreUsuario);
+            $templateProcessor->setValue("fecha_creacion#$index", $fechaCreacion);
+        }
 
         // Guardar el documento llenado en una nueva ruta
-        $newFilePath = public_path('descargas\formulario_' . $id . '.docx');
+        $newFilePath = public_path('descargas/formulario_completo.docx');
         $templateProcessor->saveAs($newFilePath);
 
         // Descargar el documento generado

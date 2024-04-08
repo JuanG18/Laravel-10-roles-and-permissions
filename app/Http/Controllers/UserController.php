@@ -125,4 +125,31 @@ class UserController extends Controller
         return redirect()->route('users.index')
                 ->withSuccess('User is deleted successfully.');
     }
+
+    public function formularios($id)
+    {
+        // Obtener el usuario
+        $user = User::findOrFail($id);
+
+        // Obtener los formularios asociados al usuario
+        $formularios = $user->formularios;
+
+        // Retornar la vista con los formularios asociados al usuario
+        return view('users.formulario', compact('user', 'formularios'));
+    }
+
+    public function detalleFormularios($id)
+    {
+        // Obtener el usuario
+        $user = User::findOrFail($id);
+
+        // Obtener todos los formularios asociados al usuario
+        $formularios = $user->formularios;
+
+        // Retornar la vista de detalles de formulario
+        return view('users.detalle_formularios', compact('user', 'formularios'));
+    }
+
 }
+
+

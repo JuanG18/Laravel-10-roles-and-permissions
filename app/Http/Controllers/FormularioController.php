@@ -9,10 +9,7 @@ class FormularioController extends Controller
 {
     public function index(Request $request)
 {
-
-    $formularios = Formulario::with('user')->get();
-
-    $query = Formulario::query();
+    $query = Formulario::query()->with('user');
 
     if ($request->has('creador')) {
         $query->whereHas('user', function($query) use ($request) {
