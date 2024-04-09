@@ -108,7 +108,7 @@
                             </div>
                         @endif
 
-                        <h3 class="text-center mt-4 mb-4" style="color: white; font-weight: bold; font-size: 35px;">Gestion de Administrador</h3>
+                        <h3 class="text-center mt-4 mb-4" style="color: white; font-weight: bold; font-size: 35px;">Gestion de Formulario</h3>
                         @yield('content')
 
                     </div>
